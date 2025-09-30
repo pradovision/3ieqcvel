@@ -1,0 +1,424 @@
+/* ---------------------------------- */
+/* 1. DEFINIÇÃO DE CORES E RESET */
+/* ---------------------------------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Cores da Paleta */
+    --primary-bg: #000000;      /* Fundo Principal (Preto) */
+    --light-text: #f0f0f0;      /* Texto Claro (Quase Branco) */
+    --dark-text: #1a1a1a;       /* Texto Escuro (Para uso em fundos claros) */
+    
+    /* Cores da Igreja */
+    --color-red: #E74C3C;       /* Vermelho */
+    --color-yellow: #F39C12;    /* Amarelo */
+    --color-blue: #3498DB;      /* Azul */
+    --color-purple: #9B59B6;    /* Roxo */
+    
+    /* Fonte Padrão (Sugestão de fontes modernas) */
+    --font-primary: 'Roboto', sans-serif;
+}
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--primary-bg);
+    color: var(--light-text); /* TODO o texto será claro por padrão */
+    line-height: 1.6;
+    scroll-behavior: smooth; /* Rolagem suave ao clicar nos links âncora */
+}
+
+/* Container centraliza o conteúdo */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+h1, h2, h3, h4 {
+    color: var(--color-yellow); /* Títulos em Amarelo para destacar */
+    margin-bottom: 0.5em;
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+a {
+    color: var(--color-blue); /* Links em Azul */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: var(--color-red); /* Hover em Vermelho */
+}
+
+/* ---------------------------------- */
+/* 2. CABEÇALHO (HEADER) */
+/* ---------------------------------- */
+
+header {
+    background-color: rgba(0, 0, 0, 0.95); /* Preto semi-transparente */
+    color: var(--light-text);
+    position: fixed; /* Fixo no topo */
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Garante que fique acima de outros elementos */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.logo {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: var(--color-purple); /* Logo em Roxo */
+}
+
+/* Menu de Navegação */
+#main-nav ul {
+    list-style: none;
+    display: flex; /* Para Desktop: horizontal */
+}
+
+#main-nav a {
+    color: var(--light-text);
+    padding: 10px 15px;
+    font-weight: 500;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#main-nav a:hover {
+    background-color: var(--color-red); /* Fundo Vermelho ao passar o mouse */
+    color: var(--primary-bg);
+    border-radius: 4px;
+}
+
+/* Esconder botão Hambúrguer por padrão (em desktop) */
+.menu-toggle {
+    display: none; 
+}
+
+/* ---------------------------------- */
+/* 3. SEÇÕES E UTILS */
+/* ---------------------------------- */
+
+/* Padding para todas as seções */
+.content-section, .cards-section, .gallery-section {
+    padding: 80px 0;
+    min-height: 70vh; /* Garante que as seções tenham um tamanho mínimo */
+}
+
+/* Estilo para a seção escura/alternada (Galeria, Cultos) */
+.dark-bg {
+    background-color: #0d0d0d; /* Preto um pouco mais claro para contraste */
+}
+
+/* Padding de ajuste para o menu fixo */
+main section:first-of-type {
+    padding-top: 100px; /* Evita que o conteúdo inicial fique escondido */
+}
+
+/* BOTÕES (CTAs) */
+.cta-button {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.primary-cta {
+    background-color: var(--color-yellow); /* Destaque em Amarelo */
+    color: var(--primary-bg);
+}
+
+.primary-cta:hover {
+    background-color: var(--color-red); /* Hover em Vermelho */
+    transform: translateY(-2px);
+}
+
+.secondary-cta {
+    background-color: transparent;
+    border: 2px solid var(--color-blue); /* Borda Azul */
+    color: var(--color-blue);
+    margin-left: 10px;
+}
+
+.secondary-cta:hover {
+    background-color: var(--color-blue);
+    color: var(--primary-bg);
+}
+
+/* ---------------------------------- */
+/* 4. HERO SECTION (HTML Passo 3) */
+/* ---------------------------------- */
+
+.hero-section {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* Coloque sua imagem de fundo aqui */
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                url('../assets/images/fundo_culto.jpg') center/cover no-repeat;
+}
+
+.hero-content h1 {
+    font-size: 4em;
+    color: var(--light-text); /* Título Principal em Branco */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* ---------------------------------- */
+/* 5. QUEM SOMOS (HTML Passo 4) */
+/* ---------------------------------- */
+
+.mission-vision-grid {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    text-align: center;
+}
+
+.mission-card {
+    flex-basis: 30%; /* Três colunas iguais */
+    padding: 20px;
+    border: 1px solid var(--color-red);
+    border-radius: 8px;
+    background-color: #111;
+}
+
+.mission-card i {
+    font-size: 3em;
+    color: var(--color-red); /* Ícones da Missão em Vermelho */
+    margin-bottom: 10px;
+}
+
+/* ---------------------------------- */
+/* 6. PASTORA (HTML Passo 6) */
+/* ---------------------------------- */
+
+.pastor-profile {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.pastor-image img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 50%; /* Imagem Redonda */
+    border: 5px solid var(--color-purple); /* Borda Roxo para destaque */
+}
+
+.pastor-bio h2 {
+    color: var(--color-purple);
+}
+
+.quote {
+    font-style: italic;
+    color: var(--color-blue);
+    margin-bottom: 15px;
+}
+
+/* ---------------------------------- */
+/* 7. CARDS EVENTOS E CÉLULAS (HTML Passo 7) */
+/* ---------------------------------- */
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.card {
+    background-color: #1a1a1a;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+}
+
+.event-card {
+    border-top: 5px solid var(--color-blue); /* Borda superior em Azul */
+}
+
+.celula-card {
+    border-top: 5px solid var(--color-purple); /* Borda superior em Roxo */
+}
+
+.card-link {
+    display: inline-block;
+    color: var(--color-yellow);
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+/* ---------------------------------- */
+/* 8. GALERIA (HTML Passo 8) */
+/* ---------------------------------- */
+
+.galeria-grid {
+    display: grid;
+    /* 3 colunas em desktop */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.galeria-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 5px;
+    transition: filter 0.3s;
+}
+
+.galeria-item:hover img {
+    filter: brightness(1.2); /* Imagem um pouco mais clara ao passar o mouse */
+}
+
+/* ---------------------------------- */
+/* 9. RODAPÉ E MÍDIA SOCIAL (HTML Passo 9) */
+/* ---------------------------------- */
+
+footer {
+    background-color: var(--primary-bg);
+    padding: 40px 0 10px;
+    border-top: 1px solid #333;
+}
+
+.footer-grid {
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #222;
+    margin-bottom: 10px;
+}
+
+.footer-col h4 {
+    color: var(--color-blue); /* Títulos do Rodapé em Azul */
+    margin-bottom: 15px;
+}
+
+.redes-sociais {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.social-icon {
+    font-size: 1.5em;
+    color: var(--light-text);
+    transition: color 0.3s;
+}
+
+/* Cores vibrantes no hover dos ícones */
+.social-icon:hover.fa-instagram { color: var(--color-red); }
+.social-icon:hover.fa-facebook-f { color: var(--color-blue); }
+.social-icon:hover.fa-youtube { color: var(--color-yellow); }
+
+.copyright {
+    text-align: center;
+    font-size: 0.8em;
+    color: #888;
+}
+
+/* ---------------------------------- */
+/* 10. MEDIA QUERIES (RESPONSIVIDADE) */
+/* ---------------------------------- */
+
+@media (max-width: 900px) {
+    /* Ajuste para telas menores */
+    .hero-content h1 {
+        font-size: 3em;
+    }
+
+    .pastor-profile {
+        flex-direction: column; /* Empilha a imagem e o texto */
+        text-align: center;
+    }
+
+    .mission-vision-grid {
+        flex-direction: column; /* Empilha os cards de Missão/Visão */
+    }
+
+    .mission-card {
+        flex-basis: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    h2 {
+        font-size: 2em;
+    }
+
+    /* Menu Hambúrguer (Mobile) */
+    #main-nav {
+        position: absolute;
+        top: 100%; /* Abaixo do cabeçalho */
+        left: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.98);
+        box-shadow: 0 4px 5px rgba(0, 0, 0, 0.5);
+        display: none; /* Escondido por padrão */
+    }
+
+    #main-nav.active {
+        display: block; /* Visível quando o JS adicionar a classe 'active' */
+    }
+
+    #main-nav ul {
+        flex-direction: column; /* Links verticais */
+        padding: 10px 0;
+    }
+
+    #main-nav a {
+        display: block;
+        padding: 15px 20px;
+        border-bottom: 1px solid #222;
+    }
+
+    .menu-toggle {
+        display: block; /* Mostrar o botão Hambúrguer */
+        background: none;
+        border: none;
+        color: var(--color-yellow);
+        font-size: 1.8em;
+        cursor: pointer;
+    }
+
+    .split-content {
+        flex-direction: column; /* Empilha os blocos (Cultos e Mapa) */
+    }
+
+    .footer-grid {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+    
+    .redes-sociais {
+        justify-content: center;
+    }
+}
+
