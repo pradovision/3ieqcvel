@@ -19,10 +19,10 @@
     --dark-text: #1a1a1a;       /* Texto Escuro */
     
     /* Cores da Igreja */
-    --color-gold: #FFCC00;      /* DOURADO BRILHANTE (Cor principal de destaque) */
-    --color-red: #E74C3C;       /* Vermelho (Acento/Hover) */
+    --color-gold: #ffcc0094;      /* DOURADO BRILHANTE (Cor principal de destaque) */
+    --color-red: #ffffff;       /* Vermelho (Acento/Hover) */
     --color-blue: #3498DB;      /* Azul (Acento) */
-    --color-purple: #9B59B6;    /* Roxo (Acento) */
+    --color-purple: #ddd4e0;    /* Roxo (Acento) */
     
     /* Fonte Padrão (Agora usamos duas) */
     --font-header: 'Playfair Display', serif; /* Nova fonte elegante para títulos */
